@@ -1,0 +1,39 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ *= require font-awesome
+ *= require simple-line-icons
+
+ */
+
+ @import "global/plugins/bootstrap/css/bootstrap";
+ /*@import "global/plugins/font-awesome/css/font-awesome";*/
+ /* @import "global/plugins/simple-line-icons/simple-line-icons";*/
+ @import "global/plugins/bootstrap-switch/css/bootstrap-switch";
+ @import "global/plugins/bootstrap-daterangepicker/daterangepicker";
+ @import "global/plugins/morris/morris";
+ @import "global/plugins/fullcalendar/fullcalendar";
+ @import "global/plugins/jqvmap/jqvmap/jqvmap";
+ @import "global/css/components";
+ @import "global/css/plugins";
+ @import "layouts/layout/css/layout";
+ @import "layouts/layout/css/custom.min";
+
+/* login page*/
+ @import "global/plugins/select2/css/select2";
+ @import "global/plugins/select2/css/select2-bootstrap.min";
+ @import "pages/css/login-5.min";
+
+ /* profile (claim) page*/
+ @import "pages/css/profile.min"

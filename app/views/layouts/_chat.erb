@@ -1,0 +1,83 @@
+<div class="table-scrollable table-scrollable-borderless">
+  <div class="container clearfix" style="width: 550px;border-radius: 5px !important;">
+    <div class="chat" style="margin-top: 15px; border-radius: 5px !important;">
+      <div class="chat-header clearfix">
+        <% if chosen_controller == "customers" %>
+          <img src="<%= @customer.profile_pic %>" alt="avatar" />
+        <% else %>
+          <img src="<%= @store.logo_url %>" alt="avatar" />
+        <% end %>
+        <div class="chat-about">
+          <% if chosen_controller == "customers" %>
+            <div class="chat-with">Chat with <%= @customer.to_s %></div>
+            <div class="chat-num-messages">
+              <%= @messages.count %> messages 
+            </div>
+          <% else %>
+            <div class="chat-with">Chat with <%= @store.name %></div>
+            <div class="chat-num-messages">
+              try us
+            </div>
+          <% end %>
+        </div>
+      </div> <!-- end chat-header -->
+      
+      <div class="chat-history" style="height:300px;">
+        <ul style="list-style: none;padding-left: 0px;">
+          <% if @messages.nil? %>
+          <li>
+            <div class="message-data">
+              <span class="message-data-name"><i class="fa fa-circle online"></i> Tattly</span>
+              <span class="message-data-time">10:12 AM, Today</span>
+            </div>
+            <div class="message my-message">
+              Hi there, what do you want to buy?
+            </div>
+          </li>
+          <% else %>
+            <% @messages.each do |message| %>
+              <%= render message %>
+            <% end %>
+          <% end %> 
+        
+          
+        </ul>
+        
+      </div> <!-- end chat-history -->
+      
+      <div class="chat-message clearfix">
+        <textarea name="message-to-send" id="message-to-send" placeholder ="Type your message" rows="3"></textarea>
+                
+        <button>Send</button>
+
+      </div> <!-- end chat-message -->
+      
+    </div> <!-- end chat -->
+    
+  </div> <!-- end container -->
+
+<script id="message-template" type="text/x-handlebars-template">
+  <li class="clearfix">
+    <div class="message-data align-right">
+      <span class="message-data-time" >{{time}}, Today</span> &nbsp; &nbsp;
+      <span class="message-data-name" >Olia</span> <i class="fa fa-circle me"></i>
+    </div>
+    <div class="message other-message float-right">
+      {{messageOutput}}
+    </div>
+  </li>
+</script>
+
+<script id="message-response-template" type="text/x-handlebars-template">
+  <li>
+    <div class="message-data">
+      <span class="message-data-name"><i class="fa fa-circle online"></i> Tattly</span>
+      <span class="message-data-time">{{time}}, Today</span>
+    </div>
+    <div class="message my-message">
+      {{response}}
+    </div>
+  </li>
+</script>
+
+</div>

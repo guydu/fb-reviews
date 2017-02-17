@@ -1,0 +1,41 @@
+<div class="user-login-5">
+    <div class="row bs-reset">
+        <div class="col-md-6 login-container bs-reset">
+            <img class="login-logo login-6" src="../assets/pages/img/login/login-invert.png" />
+            <div class="login-content">
+                <h1>Forgot Password?</h1>
+                <p> Lorem ipsum dolor sit amet, coectetuer adipiscing elit sed diam nonummy et nibh euismod aliquam erat volutpat. Lorem ipsum dolor sit amet, coectetuer adipiscing. </p>
+                <%= simple_form_for(resource, as: resource_name, url: password_path(resource_name)) do |f| %>
+                    <div class="alert alert-danger display-hide">
+                        <button class="close" data-close="alert"></button>
+                        <span>Enter any username and password. </span>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-6">
+                        	<%= f.input :email, required: true, autofocus: true %>
+                        </div>
+                    </div>
+                    <div class="row">
+	                    <%= f.error_notification %>
+	                </div>
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <label class="rememberme mt-checkbox mt-checkbox-outline">
+                            	
+                            </label>
+                        </div>
+                        <div class="col-sm-8 text-right">
+                            <div class="forgot-password">
+                                <a href="javascript:;" id="forget-password" class="forget-password">Forgot Password?</a>
+                            </div>
+                            <%= f.button :submit, "Reset" %>
+                        </div>
+                    </div>
+                <% end %>
+            </div>
+        </div>
+        <div class="col-md-6 bs-reset">
+            <div class="login-bg"> </div>
+        </div>
+    </div>
+</div>
