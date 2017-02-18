@@ -4,7 +4,7 @@ class FacebookService::Reviews::ReviewsService
 
 	def initialize
 		require 'koala'
-		oauth_access_token = Rails.application.secrets.oauth_access_tokenv
+		oauth_access_token = Rails.application.secrets.oauth_access_token
 		@graph = Koala::Facebook::API.new(oauth_access_token)
 
 	end
@@ -22,7 +22,6 @@ class FacebookService::Reviews::ReviewsService
 				rating = fb_review["rating"].to_i
 				review_text = fb_review["review_text"]
 
-				binding.pry
 				review = Review.create(name: name,
 									fb_id: fb_id,
 									rating: rating,
