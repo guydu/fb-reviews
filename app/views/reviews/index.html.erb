@@ -1,0 +1,43 @@
+<div class="page-content">
+    <div class="row">
+        <div class="col-md-12 col-sm-12">
+            <div class="portlet light bordered">
+                <div class="portlet-title tabbable-line">
+                    <div class="caption">
+                        <i class=" icon-social-twitter font-dark hide"></i>
+                        <span class="caption-subject font-dark bold uppercase">Customers</span>
+                    </div>
+                </div>
+                <div class="portlet-body">
+                    <div class="tab-content">
+                        hi
+                    </div>
+                    <%
+                        text_transform1 = "w_280,h_150,x_70,c_fit,l_text:Neucha_26_bold:#{@text1}"
+                        name_transform1 = "w_180,h_190,x_-180,y_50,c_fit,l_text:Neucha_16_bold:#{@name1}"
+                        image_transform1 = "c_scale,h_100,l_#{@image_id1},r_100,w_100,x_-180,y_-20"
+
+                        text_transform2 = "w_280,h_150,x_70,c_fit,l_text:Neucha_26_bold:#{@text2}"
+                        name_transform2 = "w_180,h_190,x_-180,y_50,c_fit,l_text:Neucha_16_bold:#{@name2}"
+                        image_transform2 = "c_scale,h_100,l_#{@image_id2},r_100,w_100,x_-180,y_-20"
+                    %>
+                    <img src="http://res.cloudinary.com/dvq8jna9w/image/upload/w_500/<%=image_transform1%>/<%=name_transform1%>/<%=text_transform1%>/template_u9xzsf.png"/>
+
+                    <img src="http://res.cloudinary.com/dvq8jna9w/image/upload/w_500/<%=image_transform2%>/<%=name_transform2%>/<%=text_transform2%>/template_u9xzsf.png"/>
+
+                    <% @reviews.each do |review| 
+                        text_transform = "w_280,h_150,x_70,c_fit,l_text:Neucha_26_bold:#{review.escaped_text}"
+                        name_transform = "w_180,h_190,x_-180,y_50,c_fit,l_text:Neucha_16_bold:#{review.escaped_name}"
+                        image_transform = "c_scale,h_100,l_#{review.image_name},r_100,w_100,x_-180,y_-20"
+                        %>
+
+                        <img src="<%=review.review_image_url%>"/>
+
+                    <% end %>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

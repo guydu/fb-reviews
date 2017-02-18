@@ -35,4 +35,21 @@ class Review < ActiveRecord::Base
 			end
 		end
 	end
+
+	def escaped_text
+		return URI.escape(self.review_text).gsub!(',', '')
+	end
+
+	def escaped_name
+		return URI.escape(self.name)
+	end
+
+	def review_image_url
+		text_transform = "w_280,h_150,x_70,c_fit,l_text:Neucha_26_bold:#{self.escaped_text}"
+        name_transform = "w_180,h_190,x_-180,y_50,c_fit,l_text:Neucha_16_bold:#{self.escaped_name}"
+        image_transform = "c_scale,h_100,l_#{self.image_name},r_100,w_100,x_-180,y_-20"
+		
+		return "http://res.cloudinary.com/dvq8jna9w/image/upload/w_500/#{image_transform}/#{name_transform}/#{text_transform}/template_u9xzsf.png"
+	end
+
 end
