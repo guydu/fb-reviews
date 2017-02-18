@@ -3,6 +3,11 @@ class HomeController < ApplicationController
   before_action :authenticate_user!
 
   def index
+
+    reviews_service = FacebookService::Reviews::ReviewsService.new
+    
+    reviews_service.get_reviews
+
   	@text1 = URI.escape("great bar! enjoyed it very much! the vibe and the music are amazing")
   	@name1 = URI.escape("Guy Dubrovski")
   	@image_id1 = URI.escape("guy")

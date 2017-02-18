@@ -11,10 +11,33 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161008100157) do
+ActiveRecord::Schema.define(version: 20170218125405) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "bots", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "name"
+    t.string   "logo_url"
+    t.string   "fb_page_id"
+    t.string   "fb_page_access_token"
+    t.string   "fb_user_access_token"
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.string   "name"
+    t.string   "fb_id"
+    t.integer  "rating"
+    t.text     "review_text"
+    t.string   "image_url"
+    t.string   "city"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.string   "profile_url"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
