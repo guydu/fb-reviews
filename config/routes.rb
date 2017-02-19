@@ -9,4 +9,7 @@ Rails.application.routes.draw do
     #root to:  "static_pages#activation_payment"
     get '/users/sign_out' => 'devise/sessions#destroy'
   end
+
+  get 'reviews/refresh' => 'reviews#refresh', :as => :refresh_reviews
+  #get 'reviews/index' => 'reviews#index', :as => :refresh_reviews
 end

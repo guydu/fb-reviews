@@ -22,6 +22,8 @@ class ReviewsController < ApplicationController
     
     reviews_service.get_reviews
 
+    redirect_to :authenticated_root
+
   end
 
 
