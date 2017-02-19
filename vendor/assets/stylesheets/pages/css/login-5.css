@@ -11,6 +11,11 @@
     background-size: cover;
     background-repeat: no-repeat;
     min-height: 100vh; }
+  .user-login-5 .login-bg2 {
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    min-height: 100vh; }
   .user-login-5 .login-logo {
     position: absolute;
     top: 2.5em;
@@ -121,6 +126,8 @@
     .user-login-5 .mt-login-5-bsfix {
       width: 100%; }
     .user-login-5 .login-bg {
+      min-height: 50vh; }
+    .user-login-5 .login-bg2 {
       min-height: 50vh; }
     .user-login-5 .login-logo.login-6 {
       position: relative;
