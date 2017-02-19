@@ -1,28 +1,24 @@
-== README
+== Facebook Ads generator
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This tool utlizes un-used page data to create content and personalized ads.
 
-Things you may want to cover:
+Each page review can be transformed easily to facebook image ad.
 
-* Ruby version
+The tool uses the following interfaces
 
-* System dependencies
+* Facebook graph API
 
-* Configuration
+* Facebook ads management API
 
-* Database creation
+* Cloudinary
 
-* Database initialization
+* Facebook Scraping :/
 
-* How to run the test suite
+Tool's flow is the following:
 
-* Services (job queues, cache servers, search engines, etc.)
+* Login
 
-* Deployment instructions
+* Refresh to get up to date reviews
 
-* ...
+* clicking "Create Ad" will create image ad for that specific review
 
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
