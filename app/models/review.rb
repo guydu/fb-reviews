@@ -3,18 +3,20 @@ class Review < ActiveRecord::Base
 	after_create :scrape_reviewer
 
 	def scrape_reviewer
+		Rails.logger.error "107"
 		if self.scraped
 			return
 		end
-
+		Rails.logger.error "108"
 		page_url = "https://www.facebook.com/Task-Bar-637312826452988/"
 
 		require 'open-uri'
 		require 'nokogiri'
 		doc = Nokogiri::HTML(open(page_url))
-
+		Rails.logger.error "109"
 		review_composer_container = doc.at_css("div#review_composer_container")
 		if !review_composer_container.nil?
+			Rails.logger.error "110"
 			review_element = review_composer_container.next_element
 
 			while (!review_element.nil? && !review_element.attribute("id").nil?)
@@ -28,9 +30,9 @@ class Review < ActiveRecord::Base
 					self.profile_url = profile_url
 					self.scraped = true
 					self.save
-
+					Rails.logger.error "111"
 					Cloudinary::Uploader.upload(self.image_url, :public_id => self.image_name)
-
+					Rails.logger.error "112"
 					break
 				end
 
