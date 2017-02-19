@@ -3,6 +3,7 @@ class ReviewsController < ApplicationController
   before_action :authenticate_user!
 
   def index
+    logger.fatal "index log"
     @reviews = Review.all
 
     # @text1 = URI.escape("great bar! enjoyed it very much! the vibe and the music are amazing")
