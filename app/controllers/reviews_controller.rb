@@ -17,11 +17,11 @@ class ReviewsController < ApplicationController
   end
 
   def refresh
-    console.log("1");
+    logger.fatal "1"
     reviews_service = FacebookService::Reviews::ReviewsService.new
-    console.log("100");
+    logger.fatal "100"
     reviews_service.get_reviews
-    console.log("200");
+    logger.fatal "200"
     redirect_to :authenticated_root
 
   end

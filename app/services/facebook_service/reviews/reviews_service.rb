@@ -10,11 +10,11 @@ class FacebookService::Reviews::ReviewsService
 	end
 
 	def get_reviews
-		console.log("101")
+		Rails.logger.fatal "101"
 		profile = @graph.get_object("me")
-		console.log("102")
+		Rails.logger.fatal "102"
 		result = @graph.get_object("me?fields=ratings")
-		console.log("103")
+		Rails.logger.fatal "103"
 
 		if !result.nil? && !result["ratings"].nil? && !result["ratings"]["data"].nil?
 			result["ratings"]["data"].each do |fb_review|
