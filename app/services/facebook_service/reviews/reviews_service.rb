@@ -10,10 +10,11 @@ class FacebookService::Reviews::ReviewsService
 	end
 
 	def get_reviews
-
+		console.log("101")
 		profile = @graph.get_object("me")
+		console.log("102")
 		result = @graph.get_object("me?fields=ratings")
-
+		console.log("103")
 
 		if !result.nil? && !result["ratings"].nil? && !result["ratings"]["data"].nil?
 			result["ratings"]["data"].each do |fb_review|
@@ -31,27 +32,6 @@ class FacebookService::Reviews::ReviewsService
 			end
 		end
 
-
-
-		
-
-		
-		# friends = @graph.get_connections("me", "friends")
-		# @graph.put_connections("me", "feed", message: "I am writing on my wall!")
-
-		# # Three-part queries are easy too!
-		# @graph.get_connections("me", "mutualfriends/#{friend_id}")
-
-		# # You can use the Timeline API:
-		# # (see https://developers.facebook.com/docs/beta/opengraph/tutorial/)
-		# @graph.put_connections("me", "namespace:action", object: object_url)
-
-		# # For extra security (recommended), you can provide an appsecret parameter,
-		# # tying your access tokens to your app secret.
-		# # (See https://developers.facebook.com/docs/reference/api/securing-graph-api/
-		# # You'll need to turn on 'Require proof on all calls' in the advanced section
-		# # of your app's settings when doing this.
-		# @graph = Koala::Facebook::API.new(oauth_access_token, app_secret)
 
 	end
 
