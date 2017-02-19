@@ -31,7 +31,13 @@ class Review < ActiveRecord::Base
 					self.scraped = true
 					self.save
 					Rails.logger.error "111"
-					Cloudinary::Uploader.upload(self.image_url, :public_id => self.image_name)
+
+					auth = {
+					  cloud_name: Rails.application.secrets.cloud_name,
+					  api_key:    Rails.application.secrets.api_key,
+					  api_secret: Rails.application.secrets.api_secret
+					}
+					Cloudinary::Uploader.upload(self.image_url, auth, :public_id => self.image_name)
 					Rails.logger.error "112"
 					break
 				end
