@@ -15,32 +15,43 @@
                     </div>
                 </div>
                 <div class="portlet-body">
-                    <div class="tab-content">
-                        hi
-                    </div>
-                    <%
-                        text_transform1 = "w_280,h_150,x_70,c_fit,l_text:Neucha_26_bold:#{@text1}"
-                        name_transform1 = "w_180,h_190,x_-180,y_50,c_fit,l_text:Neucha_16_bold:#{@name1}"
-                        image_transform1 = "c_scale,h_100,l_#{@image_id1},r_100,w_100,x_-180,y_-20"
+                    
+                    <table class="table table-striped">
+                        <tr>
+                            <th> Reviewr </th>
+                            <th> Text </th>
+                            <th style="min-width:110px"> Rating </th>
+                            <th> Ad </th>
+                        </tr>
 
-                        text_transform2 = "w_280,h_150,x_70,c_fit,l_text:Neucha_26_bold:#{@text2}"
-                        name_transform2 = "w_180,h_190,x_-180,y_50,c_fit,l_text:Neucha_16_bold:#{@name2}"
-                        image_transform2 = "c_scale,h_100,l_#{@image_id2},r_100,w_100,x_-180,y_-20"
-                    %>
-                    <img src="http://res.cloudinary.com/dvq8jna9w/image/upload/w_500/<%=image_transform1%>/<%=name_transform1%>/<%=text_transform1%>/template_u9xzsf.png"/>
-
-                    <img src="http://res.cloudinary.com/dvq8jna9w/image/upload/w_500/<%=image_transform2%>/<%=name_transform2%>/<%=text_transform2%>/template_u9xzsf.png"/>
-
-                    <% @reviews.each do |review| 
-                        text_transform = "w_280,h_150,x_70,c_fit,l_text:Neucha_26_bold:#{review.escaped_text}"
-                        name_transform = "w_180,h_190,x_-180,y_50,c_fit,l_text:Neucha_16_bold:#{review.escaped_name}"
-                        image_transform = "c_scale,h_100,l_#{review.image_name},r_100,w_100,x_-180,y_-20"
-                        %>
-
-                        <img src="<%=review.review_image_url%>"/>
-
-                    <% end %>
-
+                        <% @reviews.each do |review| %>
+                            <tr>
+                                <td> <%= review.name %> </td>
+                                <td> <%= review.review_text %> </td>
+                                <td> 
+                                    <% for i in 1..review.rating %>
+                                        <i class=" icon-star"></i> 
+                                    <% end %>
+                                </td>
+                                <td>
+                                    <% if review.published_ad %>
+                                        <img src="<%=review.review_image_url%>"/>
+                                    <% else %>
+                                        <% if review.rating >= 4 %>
+                                            <a href="/reviews/create_ad?review_id=<%= review.id %>" class="btn btn-xxl btn-success">
+                                                <i class="icon-paper-plane"></i>
+                                                <span>Create Ad</span>
+                                            </a>
+                                        <% else %>
+                                            <div>We got only <%= review.rating %> stars</div>
+                                            <div>Publishing this review as an ad is a bad idea :/</div>
+                                        <% end %>
+                                    <% end %>
+                                </td>
+                                
+                            </tr>
+                        <% end %>
+                    </table>
                 </div>
             </div>
         </div>

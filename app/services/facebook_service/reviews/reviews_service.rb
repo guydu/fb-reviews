@@ -21,8 +21,7 @@ class FacebookService::Reviews::ReviewsService
 				fb_id = fb_review["reviewer"]["id"]
 				rating = fb_review["rating"].to_i
 				review_text = fb_review["review_text"]
-
-				if Review.find(fb_id: fb_id).nil?
+				if Review.where(fb_id: fb_id).empty?
 					review = Review.create(name: name,
 										fb_id: fb_id,
 										rating: rating,

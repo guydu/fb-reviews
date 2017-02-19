@@ -58,4 +58,5 @@ gem 'simple-line-icons-rails'
 gem "koala", "~> 2.2"
 gem 'nokogiri', '~> 1.6', '>= 1.6.8'
 gem "httparty"
+gem "cloudinary"
 

@@ -11,5 +11,7 @@ Rails.application.routes.draw do
   end
 
   get 'reviews/refresh' => 'reviews#refresh', :as => :refresh_reviews
+get 'reviews/create_ad' => 'reviews#create_ad'
+
   #get 'reviews/index' => 'reviews#index', :as => :refresh_reviews
 end

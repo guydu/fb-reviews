@@ -26,5 +26,14 @@ class ReviewsController < ApplicationController
 
   end
 
+  def create_ad
+    review_id = params["review_id"]
+    review = Review.find(review_id)
+    ads_service = FacebookService::Ads::AdsService.new
+    ads_service.create_ad review
+
+    redirect_to :authenticated_root
+  end
+
 
 end
