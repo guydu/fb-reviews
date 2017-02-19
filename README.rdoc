@@ -1,8 +1,7 @@
-== Facebook Ads generator
+== Facebook Rev-U: Unlock the value of user reviews
 
-This tool utlizes un-used page data to create content and personalized ads.
-
-Each page review can be transformed easily to facebook image ad.
+Today, Facebook allows business owners to directly interact with their clients and for these clients to post genuine information about that business. However, this information isn’t accessed by potential clients who aren’t yet aware of your business, and are only exposed to it via ads. 
+Rev-U transforms the genuine, valuable user-generated content Facebook allows businesses to collect from their users into ads, allowing first-time customers to hear about a business just like they would when a friend recommends it. 
 
 The tool uses the following interfaces
 
@@ -13,12 +12,4 @@ The tool uses the following interfaces
 * Cloudinary
 
 * Facebook Scraping :/
-
-Tool's flow is the following:
-
-* Login
-
-* Refresh to get up to date reviews
-
-* clicking "Create Ad" will create image ad for that specific review
 
