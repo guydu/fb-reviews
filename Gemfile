@@ -60,3 +60,5 @@ gem 'nokogiri', '~> 1.6', '>= 1.6.8'
 gem "httparty"
 gem "cloudinary"
 
+gem "rails_12factor"
+
