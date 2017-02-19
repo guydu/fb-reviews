@@ -3,7 +3,6 @@ class ReviewsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    logger.error "index log"
     @reviews = Review.all
 
     # @text1 = URI.escape("great bar! enjoyed it very much! the vibe and the music are amazing")
@@ -18,11 +17,10 @@ class ReviewsController < ApplicationController
   end
 
   def refresh
-    logger.error "1"
     reviews_service = FacebookService::Reviews::ReviewsService.new
-    logger.error "100"
+
     reviews_service.get_reviews
-    logger.error "200"
+
     redirect_to :authenticated_root
 
   end
